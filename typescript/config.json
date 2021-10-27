@@ -1,12 +1,12 @@
 {
   "authorization": {
-    "clientId": "spa-Zi3PTeUVsvj0ndXhmtxUE0ckG",
-    "scope": "openid profile organization email itwinjs",
-    "redirectUri": "http://localhost:5000",
-    "postSignoutRedirectUri": "http://localhost:5000",
+    "clientId": "",
+    "scope": "",
+    "redirectUri": "",
+    "postSignoutRedirectUri": "",
     "responseType": "code",
     "authority": "https://ims.bentley.com"
   },
-  "iTwinId": "1bff8c44-3196-4231-b8f6-66cf6dacd45b",
-  "iModelId": "71adc398-33bd-4ca9-9dec-fa6a74729bf6"
+  "iTwinId": "",
+  "iModelId": ""
 }
