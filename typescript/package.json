@@ -1,47 +1,38 @@
 {
   "name": "@itwin/typescript-viewer-sample",
   "description": "Using the iTwin Viewer with Typescript",
-  "main": "./dist/index.js",
+  "main": "./index.ts",
   "private": true,
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
-    "build": "tsc --project ./ 1>&2 && npm run esbuild",
-    "build-watch": "tsc --project ./ --watch 1>&2",
-    "esbuild-watch": "npx esbuild src/index.ts --sourcemap --bundle --outfile=dist/index.js --format=esm --target=es2020 --external:os --minify --watch",
-    "esbuild": "npx esbuild src/index.ts --sourcemap --bundle --outfile=dist/index.js --format=esm --target=es2020 --external:os --minify",
-    "clean": "rimraf dist",
-    "start": "npx serve",
-    "dev": "concurrently \"npm:build-watch\" \"npm:esbuild-watch\" \"npm:start\""
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "author": {
     "name": "Bentley Systems, Inc.",
     "url": "http://www.bentley.com"
   },
   "devDependencies": {
-    "@itwin/eslint-plugin": "3.0.0-extension.0",
-    "esbuild": "^0.13.8",
-    "eslint": "^7.11.0",
-    "rimraf": "^3.0.2",
     "typescript": "~4.4.0",
-    "concurrently": "^6.3.0"
+    "vite": "^2.6.4"
   },
   "dependencies": {
+    "@bentley/itwin-client": "^3.0.0-extension.0",
     "@bentley/product-settings-client": "^3.0.0-extension.0",
+    "@itwin/appui-abstract": "^3.0.0-extension.0",
     "@itwin/browser-authorization": "^0.2.0",
+    "@itwin/core-common": "^3.0.0-extension.0",
     "@itwin/core-frontend": "^3.0.0-extension.0",
     "@itwin/core-geometry": "^3.0.0-extension.0",
-    "@itwin/appui-abstract": "^3.0.0-extension.0",
-    "@itwin/webgl-compatibility": "^3.0.0-extension.0",
     "@itwin/core-orbitgt": "^3.0.0-extension.0",
     "@itwin/core-quantity": "^3.0.0-extension.0",
-    "@itwin/core-common": "^3.0.0-extension.0",
-    "@bentley/itwin-client": "^3.0.0-extension.0"
-  },
-  "eslintConfig": {
-    "plugins": [
-      "@bentley"
-    ],
-    "extends": "plugin:@bentley/imodeljs-recommended"
+    "@itwin/webgl-compatibility": "^3.0.0-extension.0",
+    "buffer": "^6.0.3",
+    "sax": "^1.2.4",
+    "stream": "0.0.2",
+    "url": "^0.11.0",
+    "xml-js": "^1.6.11"
   }
 }

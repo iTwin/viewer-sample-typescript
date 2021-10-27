@@ -11,7 +11,7 @@ class ConfigurationClient {
 
   static async initialize() {
     this._config = (await (
-      await fetch(`${location.origin}/config.json`)
+      await fetch(`${location.origin}/config-local.json`)
     ).json()) as ViewerConfiguration;
   }
 
