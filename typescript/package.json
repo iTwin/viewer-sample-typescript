@@ -6,7 +6,7 @@
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --force",
     "build": "tsc && vite build",
     "serve": "vite preview"
   },
@@ -19,6 +19,7 @@
     "vite": "^2.6.4"
   },
   "dependencies": {
+    "@bentley/imodelhub-client": "^3.0.0-extension.0",
     "@bentley/itwin-client": "^3.0.0-extension.0",
     "@bentley/product-settings-client": "^3.0.0-extension.0",
     "@itwin/appui-abstract": "^3.0.0-extension.0",
@@ -28,6 +29,7 @@
     "@itwin/core-geometry": "^3.0.0-extension.0",
     "@itwin/core-orbitgt": "^3.0.0-extension.0",
     "@itwin/core-quantity": "^3.0.0-extension.0",
+    "@itwin/presentation-common": "^3.0.0-extension.0",
     "@itwin/webgl-compatibility": "^3.0.0-extension.0",
     "buffer": "^6.0.3",
     "sax": "^1.2.4",
