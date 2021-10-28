@@ -1,9 +1,14 @@
 import { BrowserAuthorizationClientConfiguration } from "@itwin/browser-authorization";
 
+interface ViewerMapConfiguration {
+  bingKey: string;
+}
+
 export interface ViewerConfiguration {
   authorization: BrowserAuthorizationClientConfiguration;
   iTwinId: string;
   iModelId: string;
+  map?: ViewerMapConfiguration;
 }
 
 class ConfigurationClient {

@@ -11,7 +11,7 @@ import {
 import { IModelApp } from "@itwin/core-frontend";
 import { PresentationRpcInterface } from "@itwin/presentation-common";
 import AuthClient from "./clients/Authorization";
-import ConfigClient from "./clients/Configuration";
+import ConfigClient, { ViewerConfiguration } from "./clients/Configuration";
 import { addViewport } from "./Viewport";
 
 const signIn = async (authConfig: BrowserAuthorizationClientConfiguration) => {
@@ -30,11 +30,17 @@ const signIn = async (authConfig: BrowserAuthorizationClientConfiguration) => {
   });
 };
 
-const initialize = async () => {
+const initialize = async (config: ViewerConfiguration) => {
   await IModelApp.startup({
     authorizationClient: AuthClient.client,
     hubAccess: new IModelHubFrontend(),
     rpcInterfaces: [IModelReadRpcInterface],
+    mapLayerOptions: {
+      BingMaps: {
+        key: "key",
+        value: config.map?.bingKey,
+      },
+    },
   });
   BentleyCloudRpcManager.initializeClient(
     {
@@ -50,7 +56,7 @@ const startup = async () => {
   await ConfigClient.initialize();
   const config = ConfigClient.config;
   await signIn(config.authorization);
-  await initialize();
+  await initialize(config);
   const root = document.getElementById("root") as HTMLDivElement;
   await addViewport(root, config.iTwinId, config.iModelId);
 };

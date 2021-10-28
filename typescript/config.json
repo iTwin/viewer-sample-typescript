@@ -8,5 +8,8 @@
     "authority": "https://ims.bentley.com"
   },
   "iTwinId": "",
-  "iModelId": ""
+  "iModelId": "",
+  "map": {
+    "bingKey": ""
+  }
 }
