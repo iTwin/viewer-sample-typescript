@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/command-line.schema.json",
+  "commands": [
+    {
+      "name": "test",
+      "commandKind": "bulk",
+      "summary": "Run test script for each package",
+      "description": "Iterates through each package in the monorepo and runs the 'test' script",
+      "enableParallelism": true,
+      "ignoreMissingScript": false,
+      "ignoreDependencyOrder": true,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "name": "audit",
+      "commandKind": "global",
+      "summary": "Runs npm audit for the entire monorepo",
+      "description": "Scans the entire monorepo for security vulnerabilities via npm audit",
+      "shellCommand": "node common/scripts/audit.js",
+      "allowWarningsInSuccessfulBuild": true
+    }
+  ],
+  "parameters": []
+}

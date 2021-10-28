@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+* Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+* See LICENSE.md in the project root for license terms and full copyright notice.
+*--------------------------------------------------------------------------------------------*/
 import {
   CheckpointConnection,
   IModelApp,
@@ -16,7 +20,7 @@ export const addViewport = async (
   );
   if (iModelConnection) {
     // create a container div
-    const viewPortContainer = document.createElement("div") as HTMLDivElement;
+    const viewPortContainer = document.createElement("div");
     viewPortContainer.style.height = "100vh";
     viewPortContainer.style.width = "100%";
     viewPortContainer.id = "viewport-container";

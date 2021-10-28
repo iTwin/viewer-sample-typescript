@@ -37,3 +37,8 @@ node_modules/
 **/*.Tiles-journal
 
 config-local.json
+
+# Rush temporary files
+common/temp/
+**/.rush/temp/
+/**/.rush

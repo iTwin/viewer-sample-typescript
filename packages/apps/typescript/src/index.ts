@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+* Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+* See LICENSE.md in the project root for license terms and full copyright notice.
+*--------------------------------------------------------------------------------------------*/
 import { IModelHubFrontend } from "@bentley/imodelhub-client";
 import {
   BrowserAuthorizationCallbackHandler,
@@ -36,9 +40,10 @@ const initialize = async (config: ViewerConfiguration) => {
     hubAccess: new IModelHubFrontend(),
     rpcInterfaces: [IModelReadRpcInterface],
     mapLayerOptions: {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       BingMaps: {
         key: "key",
-        value: config.map?.bingKey,
+        value: config.map?.bingKey ?? "",
       },
     },
   });
@@ -49,7 +54,6 @@ const initialize = async (config: ViewerConfiguration) => {
     },
     [IModelReadRpcInterface, IModelTileRpcInterface, PresentationRpcInterface]
   );
-  console.log("app started");
 };
 
 const startup = async () => {
@@ -61,4 +65,4 @@ const startup = async () => {
   await addViewport(root, config.iTwinId, config.iModelId);
 };
 
-startup();
+void startup();

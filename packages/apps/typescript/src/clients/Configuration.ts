@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+* Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+* See LICENSE.md in the project root for license terms and full copyright notice.
+*--------------------------------------------------------------------------------------------*/
 import { BrowserAuthorizationClientConfiguration } from "@itwin/browser-authorization";
 
 interface ViewerMapConfiguration {
@@ -14,7 +18,7 @@ export interface ViewerConfiguration {
 class ConfigurationClient {
   private static _config: ViewerConfiguration;
 
-  static async initialize() {
+  public static async initialize() {
     this._config = (await (
       await fetch(`${location.origin}/config-local.json`)
     ).json()) as ViewerConfiguration;
