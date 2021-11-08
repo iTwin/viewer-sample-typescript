@@ -19,6 +19,12 @@
       "projectFolder": "packages/apps/typescript",
       "versionPolicyName": "independentModule",
       "shouldPublish": false
+    },
+    {
+      "packageName": "@itwin/select-tool-extension-sample",
+      "projectFolder": "packages/extensions/select-tool",
+      "versionPolicyName": "independentModule",
+      "shouldPublish": false
     }
   ]
 }

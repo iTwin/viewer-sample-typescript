@@ -2,6 +2,7 @@
 * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
+
 import { BrowserAuthorizationClientConfiguration } from "@itwin/browser-authorization";
 
 interface ViewerMapConfiguration {
@@ -15,6 +16,9 @@ export interface ViewerConfiguration {
   map?: ViewerMapConfiguration;
 }
 
+/**
+ * configuration client
+ */
 class ConfigurationClient {
   private static _config: ViewerConfiguration;
 

@@ -6,35 +6,58 @@
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite --force",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "start": "react-scripts --max_old_space_size=8192 start",
+    "build": "react-scripts --max_old_space_size=8192 build"
   },
   "author": {
     "name": "Bentley Systems, Inc.",
     "url": "http://www.bentley.com"
   },
+  "//": "@bentley/react-scripts, react, and react-dom are only used for build tooling and optimal Webpack config. They are not part of the application",
   "devDependencies": {
     "typescript": "~4.4.0",
-    "vite": "^2.6.4"
+    "@bentley/react-scripts": "^4.0.5", 
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@bentley/imodelhub-client": "^3.0.0-extension.0",
-    "@bentley/itwin-client": "^3.0.0-extension.0",
-    "@bentley/product-settings-client": "^3.0.0-extension.0",
-    "@itwin/appui-abstract": "^3.0.0-extension.0",
+    "@bentley/icons-generic-webfont": "^1.0.15",
+    "@bentley/imodelhub-client": "3.0.0-extension.0",
+    "@bentley/itwin-client": "3.0.0-extension.0",
+    "@bentley/product-settings-client": "3.0.0-extension.0",
+    "@itwin/appui-abstract": "3.0.0-extension.0",
     "@itwin/browser-authorization": "^0.2.0",
-    "@itwin/core-common": "^3.0.0-extension.0",
-    "@itwin/core-frontend": "^3.0.0-extension.0",
-    "@itwin/core-geometry": "^3.0.0-extension.0",
-    "@itwin/core-orbitgt": "^3.0.0-extension.0",
-    "@itwin/core-quantity": "^3.0.0-extension.0",
-    "@itwin/presentation-common": "^3.0.0-extension.0",
-    "@itwin/webgl-compatibility": "^3.0.0-extension.0",
-    "buffer": "^6.0.3",
-    "sax": "^1.2.4",
-    "stream": "0.0.2",
-    "url": "^0.11.0",
-    "xml-js": "^1.6.11"
+    "@itwin/core-bentley": "3.0.0-extension.0",
+    "@itwin/core-common": "3.0.0-extension.0",
+    "@itwin/core-frontend": "3.0.0-extension.0",
+    "@itwin/core-geometry": "3.0.0-extension.0",
+    "@itwin/core-orbitgt": "3.0.0-extension.0",
+    "@itwin/core-quantity": "3.0.0-extension.0",
+    "@itwin/presentation-common": "3.0.0-extension.0",
+    "@itwin/presentation-frontend": "3.0.0-extension.0",
+    "@itwin/webgl-compatibility": "3.0.0-extension.0",
+    "@itwin/select-tool-extension-sample": "0.0.1",
+    "@bentley/react-scripts": "~4.0.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "plugin:@itwin/itwinjs-recommended",
+    "plugins": [
+      "@itwin"
+    ],
+    "rules": {
+      "no-console": "warn"
+    }
   }
 }

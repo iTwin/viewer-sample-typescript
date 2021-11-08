@@ -2,11 +2,15 @@
 * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
+
 import {
   BrowserAuthorizationClient,
   BrowserAuthorizationClientConfiguration,
 } from "@itwin/browser-authorization";
 
+/**
+ * Authorization client
+ */
 export class AuthorizationClient {
   private static _client: BrowserAuthorizationClient;
 
