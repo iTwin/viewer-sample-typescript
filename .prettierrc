@@ -8,7 +8,7 @@
 # In order to use Prettier, add "prettier" to your package.json file `yarn add prettier --dev --exact`
 
 # This enables trailing commas in cases that are compatible with es5.  If we use 'all' then we need to transpile everything.
-trailingComma: "es5"
+trailingComma: "all"
 # This sets the tab width to 2 spaces.  This is the default value, but better to be explicit so it's obvious.
 tabWidth: 2
 # This ensures that all tabs use spaces.  This is the default, but again, better to be explicit.
