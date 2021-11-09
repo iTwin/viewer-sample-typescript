@@ -3,12 +3,17 @@
   "description": "Using the iTwin Viewer with Typescript",
   "main": "./index.ts",
   "private": true,
+  "type": "module",
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite --force",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "build": "run-p build:**",
+    "build:tsc": "tsc --project . 1>&2",
+    "build:esbuild": "node esbuild.js",
+    "build:assets": "node ./scripts/copyAssets.js",
+    "serve": "serve ./public",
+    "watch": "run-p \"build:** -- --watch\"",
+    "start": "run-p watch serve"
   },
   "author": {
     "name": "Bentley Systems, Inc.",
@@ -16,25 +21,27 @@
   },
   "devDependencies": {
     "typescript": "~4.4.0",
-    "vite": "^2.6.4"
+    "esbuild": "^0.13.13",
+    "@esbuild-plugins/node-modules-polyfill": "~0.1.2",
+    "@esbuild-plugins/node-globals-polyfill": "~0.1.1",
+    "npm-run-all": "^4.1.5",
+    "cpx": "~1.5.0",
+    "serve": "^13.0.2"
   },
   "dependencies": {
-    "@bentley/imodelhub-client": "^3.0.0-extension.0",
-    "@bentley/itwin-client": "^3.0.0-extension.0",
-    "@bentley/product-settings-client": "^3.0.0-extension.0",
-    "@itwin/appui-abstract": "^3.0.0-extension.0",
+    "@bentley/icons-generic-webfont": "^1.0.15",
+    "@bentley/imodelhub-client": "^3.0.0-extension.1",
+    "@bentley/itwin-client": "^3.0.0-extension.1",
+    "@bentley/product-settings-client": "^3.0.0-extension.1",
+    "@itwin/appui-abstract": "^3.0.0-extension.1",
     "@itwin/browser-authorization": "^0.2.0",
-    "@itwin/core-common": "^3.0.0-extension.0",
-    "@itwin/core-frontend": "^3.0.0-extension.0",
-    "@itwin/core-geometry": "^3.0.0-extension.0",
-    "@itwin/core-orbitgt": "^3.0.0-extension.0",
-    "@itwin/core-quantity": "^3.0.0-extension.0",
-    "@itwin/presentation-common": "^3.0.0-extension.0",
-    "@itwin/webgl-compatibility": "^3.0.0-extension.0",
-    "buffer": "^6.0.3",
-    "sax": "^1.2.4",
-    "stream": "0.0.2",
-    "url": "^0.11.0",
-    "xml-js": "^1.6.11"
+    "@itwin/core-common": "^3.0.0-extension.1",
+    "@itwin/core-frontend": "^3.0.0-extension.1",
+    "@itwin/core-geometry": "^3.0.0-extension.1",
+    "@itwin/core-orbitgt": "^3.0.0-extension.1",
+    "@itwin/core-quantity": "^3.0.0-extension.1",
+    "@itwin/presentation-common": "^3.0.0-extension.1",
+    "@itwin/webgl-compatibility": "^3.0.0-extension.1",
+    "@itwin/select-tool-extension-sample": "0.0.1"
   }
 }
