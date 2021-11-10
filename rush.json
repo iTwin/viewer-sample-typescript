@@ -16,7 +16,7 @@
     },
     {
       "packageName": "@itwin/typescript-viewer-sample",
-      "projectFolder": "packages/apps/typescript",
+      "projectFolder": "packages/app",
       "versionPolicyName": "independentModule",
       "shouldPublish": false
     },
