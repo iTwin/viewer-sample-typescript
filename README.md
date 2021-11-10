@@ -11,5 +11,5 @@
   - Application type - SPA
   - Redirect URIs - http://localhost:3000
 
-4. From a terminal at the root of the "app" directory, execute "npm start". This will start compile the application in watch mode and start an http server on port 3000.
+4. From a terminal at the root of the "app" directory, execute "npm start". This will compile the application in watch mode and start an http server on port 3000.
 5. Navigate to http://localhost:3000 in your browser
