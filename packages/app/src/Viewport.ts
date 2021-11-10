@@ -2,23 +2,35 @@
 * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
+
 import {
   CheckpointConnection,
   IModelApp,
   ScreenViewport,
   ViewCreator3d,
 } from "@itwin/core-frontend";
+import { ElementSelectionListener } from "./ElementSelectionListener";
+import { addToolbar } from "./Tools";
 
+/**
+ * Establish a connection, generate a view state, and add a viewport to the DOM
+ * @param parentDiv
+ * @param iTwinId
+ * @param iModelId
+ */
 export const addViewport = async (
   parentDiv: HTMLDivElement,
   iTwinId: string,
-  iModelId: string
+  iModelId: string,
 ) => {
   const iModelConnection = await CheckpointConnection.openRemote(
     iTwinId,
-    iModelId
+    iModelId,
   );
   if (iModelConnection) {
+    // add a listener to selection events
+    new ElementSelectionListener(iModelConnection);
+
     // create a container div
     const viewPortContainer = document.createElement("div");
     viewPortContainer.style.height = "100vh";
@@ -31,5 +43,8 @@ export const addViewport = async (
     const viewState = await viewCreator.createDefaultView();
     const vp = ScreenViewport.create(viewPortContainer, viewState);
     IModelApp.viewManager.addViewport(vp);
+
+    // overlay tool buttons
+    addToolbar(viewPortContainer);
   }
 };

@@ -42,3 +42,10 @@ config-local.json
 common/temp/
 **/.rush/temp/
 /**/.rush
+
+# public assets (freshly copied during build)
+**/public/assets/**
+**/public/cursors/**
+**/public/images/**
+**/public/locales/**
+**/public/sprites/**

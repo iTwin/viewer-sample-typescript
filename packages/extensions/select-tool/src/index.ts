@@ -2,4 +2,11 @@
 * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
-/// <reference types="vite/client" />
+
+import { registerTool } from "@itwin/core-extension";
+import { SelectionTool } from "./SelectTool";
+
+export default function activate() {
+  void registerTool(SelectionTool);
+  console.log("Select tool extension loaded!!"); // eslint-disable-line no-console
+}

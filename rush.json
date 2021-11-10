@@ -16,7 +16,13 @@
     },
     {
       "packageName": "@itwin/typescript-viewer-sample",
-      "projectFolder": "packages/apps/typescript",
+      "projectFolder": "packages/app",
+      "versionPolicyName": "independentModule",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "@itwin/select-tool-extension-sample",
+      "projectFolder": "packages/extensions/select-tool",
       "versionPolicyName": "independentModule",
       "shouldPublish": false
     }
