@@ -5,7 +5,7 @@ import esbuild from "esbuild";
 import { fileURLToPath } from 'url';
 import { argv } from "process";
 
-const dir = path.dirname(fileURLToPath(import.meta.url));
+const dir = path.dirname(fileURLToPath(import.meta.url)).replace(/\\/g, '/');
 const arg = argv.length > 2 ? argv[2] : undefined;
 
 esbuild.build({
