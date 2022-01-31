@@ -3,10 +3,11 @@
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
 
-import { registerTool } from "@itwin/core-extension";
-import { SelectionTool } from "./SelectTool";
+export const noop = ""; // TODO Placeholder until extensions are ready
+// import { registerTool } from "@itwin/core-extension";
+// import { SelectionTool } from "./SelectTool";
 
-export default function activate() {
-  void registerTool(SelectionTool);
-  console.log("Select tool extension loaded!!"); // eslint-disable-line no-console
-}
+// export default function activate() {
+//   // void registerTool(SelectionTool);
+//   console.log("Select tool extension loaded!!"); // eslint-disable-line no-console
+// }

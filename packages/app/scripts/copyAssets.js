@@ -5,7 +5,7 @@
 import cpx from "cpx";
 import path from "path";
 
-const nodeModulesPath = "./node_modules/"
+const nodeModulesPath = "./node_modules/";
 
 // copy i18n files
 const i18nToCopy = [
@@ -18,10 +18,9 @@ const i18nToCopy = [
   "core-quantity",
   "presentation-common",
   "webgl-compatibility",
-  "select-tool-extension-sample"
+  "select-tool-extension-sample",
 ];
-const i18nTargetPath = "public/locales/v1/";
-
+const i18nTargetPath = "public/locales/";
 
 i18nToCopy.forEach((pkg) => {
   const i18nSrcPath = path.join(
@@ -31,7 +30,7 @@ i18nToCopy.forEach((pkg) => {
     "lib/public/locales/**/*.json"
   );
 
-  cpx.copy(i18nSrcPath, i18nTargetPath, {dereference: true}, (err) => {
+  cpx.copy(i18nSrcPath, i18nTargetPath, { dereference: true }, (err) => {
     if (err) {
       throw err;
     }
@@ -53,7 +52,7 @@ cursorsToCopy.forEach((pkg) => {
     pkg,
     "lib/public/cursors/**"
   );
-  cpx.copy(cursorsSrcPath, cursorsTargetPath, {dereference: true},(err) => {
+  cpx.copy(cursorsSrcPath, cursorsTargetPath, { dereference: true }, (err) => {
     if (err) {
       throw err;
     }
@@ -75,7 +74,7 @@ spritesToCopy.forEach((pkg) => {
     pkg,
     "lib/public/sprites/**"
   );
-  cpx.copy(spritesSrcPath, spritesTargetPath, {dereference: true},(err) => {
+  cpx.copy(spritesSrcPath, spritesTargetPath, { dereference: true }, (err) => {
     if (err) {
       throw err;
     }
@@ -97,7 +96,7 @@ imagesToCopy.forEach((pkg) => {
     pkg,
     "lib/public/images/**"
   );
-  cpx.copy(imagesSrcPath, imagesTargetPath, {dereference: true},(err) => {
+  cpx.copy(imagesSrcPath, imagesTargetPath, { dereference: true }, (err) => {
     if (err) {
       throw err;
     }
@@ -119,7 +118,7 @@ assetsToCopy.forEach((pkg) => {
     pkg,
     "lib/public/assets/**"
   );
-  cpx.copy(assetsSrcPath, assetsTargetPath, {dereference: true},(err) => {
+  cpx.copy(assetsSrcPath, assetsTargetPath, { dereference: true }, (err) => {
     if (err) {
       throw err;
     }

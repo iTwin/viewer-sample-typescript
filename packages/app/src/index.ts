@@ -3,7 +3,8 @@
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
 
-import { IModelHubFrontend } from "@bentley/imodelhub-client";
+import { FrontendIModelsAccess } from "@itwin/imodels-access-frontend";
+import { IModelsClient } from "@itwin/imodels-client-management";
 import {
   BrowserAuthorizationCallbackHandler,
   BrowserAuthorizationClientConfiguration,
@@ -18,7 +19,7 @@ import { PresentationRpcInterface } from "@itwin/presentation-common";
 import AuthClient from "./clients/Authorization";
 import ConfigClient, { ViewerConfiguration } from "./clients/Configuration";
 import { addViewport } from "./Viewport";
-import SelectTool from "@itwin/select-tool-extension-sample";
+// import SelectTool from "@itwin/select-tool-extension-sample";   // TODO re-add once the extension API is ready
 import "@bentley/icons-generic-webfont/dist/bentley-icons-generic-webfont.css";
 
 /**
@@ -46,11 +47,12 @@ const signIn = async (authConfig: BrowserAuthorizationClientConfiguration) => {
  * Add iTwin.js extensions
  */
 const addExtensions = async () => {
-  await IModelApp.extensionAdmin.addBuildExtension(
-    SelectTool.manifest,
-    SelectTool.loader
-  );
-  await IModelApp.extensionAdmin.onStartup();
+  // TODO re-add once the extension API is ready
+  // await IModelApp.extensionAdmin.addBuildExtension(
+  //   SelectTool.manifest,
+  //   SelectTool.loader
+  // );
+  // await IModelApp.extensionAdmin.onStartup();
 };
 
 /**
@@ -58,9 +60,11 @@ const addExtensions = async () => {
  * @param config
  */
 const initialize = async (config: ViewerConfiguration) => {
+  const iModelsClient = new IModelsClient();
+
   await IModelApp.startup({
     authorizationClient: AuthClient.client,
-    hubAccess: new IModelHubFrontend() as any,
+    hubAccess: new FrontendIModelsAccess(iModelsClient),
     rpcInterfaces: [IModelReadRpcInterface],
     mapLayerOptions: {
       // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -72,24 +76,39 @@ const initialize = async (config: ViewerConfiguration) => {
   });
   BentleyCloudRpcManager.initializeClient(
     {
-      uriPrefix: "https://dev-api.bentley.com/imodeljs",
-      info: { title: "visualization", version: "v3.0" },
+      uriPrefix: "https://api.bentley.com",
+      info: { title: "imodel/rpc", version: "" },
     },
     [IModelReadRpcInterface, IModelTileRpcInterface, PresentationRpcInterface]
   );
   await addExtensions();
 };
 
+const loadingStatus = (loading: boolean, containerDiv?: HTMLDivElement) => {
+  if (loading && containerDiv) {
+    const loadingSpan = document.createElement("span");
+    loadingSpan.textContent = "Initializing and signing in...";
+    loadingSpan.id = "viewer-loading-span";
+    loadingSpan.style.margin = "auto";
+    containerDiv.append(loadingSpan);
+  } else {
+    const loadingSpan = document.getElementById("viewer-loading-span");
+    loadingSpan?.remove();
+  }
+};
+
 /**
  * App startup
  */
 const startup = async () => {
+  const root = document.getElementById("root") as HTMLDivElement;
+  loadingStatus(true, root);
   await ConfigClient.initialize();
   const config = ConfigClient.config;
   await signIn(config.authorization);
   await initialize(config);
-  const root = document.getElementById("root");
-  await addViewport(root as HTMLDivElement, config.iTwinId, config.iModelId);
+  loadingStatus(false);
+  await addViewport(root, config.iTwinId, config.iModelId);
 };
 
 void startup();

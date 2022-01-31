@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@itwin/typescript-viewer-sample",
+      "comment": "Upgrade to iTwin.js 3.0",
+      "type": "major"
+    }
+  ],
+  "packageName": "@itwin/typescript-viewer-sample",
+  "email": "6283674+kckst8@users.noreply.github.com"
+}
