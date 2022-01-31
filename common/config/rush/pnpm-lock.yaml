@@ -3,7 +3,7 @@ dependencies:
   '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.13.15
   '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.13.15
   '@itwin/appui-abstract': 3.0.0_@itwin+core-bentley@3.0.0
-  '@itwin/browser-authorization': 0.2.0
+  '@itwin/browser-authorization': 0.5.1_@itwin+core-bentley@3.0.0
   '@itwin/build-tools': 3.0.0
   '@itwin/core-bentley': 3.0.0
   '@itwin/core-common': 3.0.0_162f3d5152e7671a08a264c69178e997
@@ -288,20 +288,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-5zZgs+himE2vjf39CVlDXMHCFAwSfcoORqJBk3Vji8QVCF8AIX4IX2DO6HlsIAM7szxMNqhz1kd07Xfppro6MA==
-  /@bentley/itwin-client/3.0.0-extension.1_@itwin+core-bentley@3.0.0:
-    dependencies:
-      '@itwin/core-bentley': 3.0.0
-      deep-assign: 2.0.0
-      js-base64: 3.7.2
-      lodash: 4.17.21
-      qs: 6.10.3
-      superagent: 5.3.1
-      xpath: 0.0.27
-    dev: false
-    peerDependencies:
-      '@itwin/core-bentley': ^3.0.0-extension.1
-    resolution:
-      integrity: sha512-TdC8vNcDN5Xy7x/TBFzh+/To6ibdcPK12hodO9fTvJpVEIAQGZEO1EDLE/jA1S4RqA3nWk2trU9bjqqmh1KgoQ==
   /@es-joy/jsdoccomment/0.8.0:
     dependencies:
       comment-parser: 1.1.5
@@ -369,14 +355,15 @@ packages:
       '@itwin/core-bentley': ^3.0.0
     resolution:
       integrity: sha512-REsf9KNcX0CAY3vbAeLOIh629Ej2TSF5Ht27QIeF8MsuulJmXowDl/N3cGRNuKNSHxXJLuvkPEPoMvQNESmMGQ==
-  /@itwin/browser-authorization/0.2.0:
+  /@itwin/browser-authorization/0.5.1_@itwin+core-bentley@3.0.0:
     dependencies:
-      '@bentley/itwin-client': 3.0.0-extension.1_@itwin+core-bentley@3.0.0
       '@itwin/core-bentley': 3.0.0
       oidc-client: 1.11.5
     dev: false
+    peerDependencies:
+      '@itwin/core-bentley': ^3.0.0
     resolution:
-      integrity: sha512-mds+oVFelKQ/u2jWzLUxHQUHLu5PwnzGA98PE2Nwlti3LVEMq1R9BGPyXobFAA6sXmgdHJ0VkaZLTBjvaicgZw==
+      integrity: sha512-TI7nd4I5Lc9MrJnf40kk+u4bTCym1xH9IBJNkvVt+7unjUSbRuUaPS6wC6WTu2DoYbIocEIEBWTqNOR67lAHGA==
   /@itwin/build-tools/3.0.0:
     dependencies:
       '@microsoft/api-extractor': 7.7.3
@@ -2791,16 +2778,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-UmXGgaTylNq78XyVCbZ2OqhFEM4=
-  /form-data/3.0.1:
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.34
-    dev: false
-    engines:
-      node: '>= 6'
-    resolution:
-      integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==
   /form-data/4.0.0:
     dependencies:
       asynckit: 0.4.0
@@ -2811,11 +2788,6 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
-  /formidable/1.2.6:
-    deprecated: 'Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau'
-    dev: false
-    resolution:
-      integrity: sha512-KcpbcpuLNOwrEjnbpMC0gS+X8ciDoZE1kkqzat4a8vrprf+s9pKNQ/QIwWfbfs4ltgmFl3MD177SNTkve3BwGQ==
   /formidable/2.0.1:
     dependencies:
       dezalgo: 1.0.3
@@ -5943,25 +5915,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-WfxjozUk0UVA4jm+U1d736AUpzSrNsQcIbyOkoE364GrtWmIrFdk5lksEupgWMD4VaT/0kVx1dobpiDumSgmJQ==
-  /superagent/5.3.1:
-    dependencies:
-      component-emitter: 1.3.0
-      cookiejar: 2.1.3
-      debug: 4.3.3
-      fast-safe-stringify: 2.1.1
-      form-data: 3.0.1
-      formidable: 1.2.6
-      methods: 1.1.2
-      mime: 2.6.0
-      qs: 6.10.3
-      readable-stream: 3.6.0
-      semver: 7.3.5
-    deprecated: 'Please upgrade to v7.0.2+ of superagent.  We have fixed numerous issues with streams, form-data, attach(), filesystem errors not bubbling up (ENOENT on attach()), and all tests are now passing.  See the releases tab for more information at <https://github.com/visionmedia/superagent/releases>. Thanks to @shadowgate15, @spence-s, and @niftylettuce. Superagent is sponsored by Forward Email at <https://forwardemail.net>.'
-    dev: false
-    engines:
-      node: '>= 7.0.0'
-    resolution:
-      integrity: sha512-wjJ/MoTid2/RuGCOFtlacyGNxN9QLMgcpYLDQlWFIhhdJ93kNscFonGvrpAHSCVjRVj++DGCglocF7Aej1KHvQ==
   /superagent/7.1.1:
     dependencies:
       component-emitter: 1.3.0
@@ -6476,12 +6429,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
-  /xpath/0.0.27:
-    dev: false
-    engines:
-      node: '>=0.6.0'
-    resolution:
-      integrity: sha512-fg03WRxtkCV6ohClePNAECYsmpKKTv5L8y/X3Dn1hQrec3POx2jHZ/0P2qQ6HvsrU1BmeqXcof3NGGueG6LxwQ==
   /y18n/5.0.8:
     dev: false
     engines:
@@ -6583,7 +6530,7 @@ packages:
       '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.13.15
       '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.13.15
       '@itwin/appui-abstract': 3.0.0_@itwin+core-bentley@3.0.0
-      '@itwin/browser-authorization': 0.2.0
+      '@itwin/browser-authorization': 0.5.1_@itwin+core-bentley@3.0.0
       '@itwin/core-common': 3.0.0_162f3d5152e7671a08a264c69178e997
       '@itwin/core-frontend': 3.0.0_bad31fb21021ee30bb840e28431edfc9
       '@itwin/core-geometry': 3.0.0
@@ -6604,7 +6551,7 @@ packages:
     peerDependencies:
       '@itwin/core-bentley': '*'
     resolution:
-      integrity: sha512-yODXDAYSwZ7B65kIhzBs/vodlFdC4Yal5vYIQf6LeZ3GYwuyrDQ+TwuwDdbVSp6TyvFimnBOgvGTBbLYYsZlww==
+      integrity: sha512-rh7RBQd9CadRZUts0ymei/bjm/FYsMHTiqPb/rxTrkV9/6fCrPpFcgxwbuOGC9cDRq8sQKwGUW5Y2HYth6Cj2g==
       tarball: 'file:projects/typescript-viewer-sample.tgz'
     version: 0.0.0
   'file:projects/viewer-sample-scripts.tgz_typescript@4.4.4':
@@ -6646,7 +6593,7 @@ specifiers:
   '@esbuild-plugins/node-globals-polyfill': ~0.1.1
   '@esbuild-plugins/node-modules-polyfill': ~0.1.2
   '@itwin/appui-abstract': ^3.0.0
-  '@itwin/browser-authorization': ^0.2.0
+  '@itwin/browser-authorization': ^0.5.1
   '@itwin/build-tools': ^3.0.0
   '@itwin/core-bentley': ^3.0.0
   '@itwin/core-common': ^3.0.0

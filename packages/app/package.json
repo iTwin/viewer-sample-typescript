@@ -33,7 +33,7 @@
     "@itwin/imodels-access-frontend": "^1.0.1",
     "@itwin/imodels-client-management": "^1.0.1",
     "@itwin/appui-abstract": "^3.0.0",
-    "@itwin/browser-authorization": "^0.2.0",
+    "@itwin/browser-authorization": "^0.5.1",
     "@itwin/core-common": "^3.0.0",
     "@itwin/core-frontend": "^3.0.0",
     "@itwin/core-geometry": "^3.0.0",
