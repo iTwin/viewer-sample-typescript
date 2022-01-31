@@ -60,11 +60,7 @@ const addExtensions = async () => {
  * @param config
  */
 const initialize = async (config: ViewerConfiguration) => {
-  const iModelsClient = new IModelsClient({
-    api: {
-      baseUrl: "https://api.bentley.com/imodels",
-    },
-  });
+  const iModelsClient = new IModelsClient();
 
   await IModelApp.startup({
     authorizationClient: AuthClient.client,
@@ -88,16 +84,31 @@ const initialize = async (config: ViewerConfiguration) => {
   await addExtensions();
 };
 
+const loadingStatus = (loading: boolean, containerDiv?: HTMLDivElement) => {
+  if (loading && containerDiv) {
+    const loadingSpan = document.createElement("span");
+    loadingSpan.textContent = "Initializing and signing in...";
+    loadingSpan.id = "viewer-loading-span";
+    loadingSpan.style.margin = "auto";
+    containerDiv.append(loadingSpan);
+  } else {
+    const loadingSpan = document.getElementById("viewer-loading-span");
+    loadingSpan?.remove();
+  }
+};
+
 /**
  * App startup
  */
 const startup = async () => {
+  const root = document.getElementById("root") as HTMLDivElement;
+  loadingStatus(true, root);
   await ConfigClient.initialize();
   const config = ConfigClient.config;
   await signIn(config.authorization);
   await initialize(config);
-  const root = document.getElementById("root");
-  await addViewport(root as HTMLDivElement, config.iTwinId, config.iModelId);
+  loadingStatus(false);
+  await addViewport(root, config.iTwinId, config.iModelId);
 };
 
 void startup();
