@@ -5,7 +5,7 @@ async function preCommit() {
     config: {
       "*.{ts,tsx}": [
         "node ./common/scripts/copyright-linter.js --",
-        `node --max_old_space_size=4096 ./common/scripts/node_modules/eslint/bin/eslint.js --config ./common/scripts/.eslintrc.json --ignore-path ./.eslintignore --color --resolve-plugins-relative-to ./common/scripts`,
+        `node --max_old_space_size=4096 ./common/scripts/node_modules/eslint/bin/eslint.js --config ./common/scripts/.eslintrc.json --ignore-path ./.eslintignore --color --resolve-plugins-relative-to ./common/scripts --fix`,
         "node ./common/scripts/node_modules/prettier --write --config ./.prettierrc --ignore-path ./.prettierignore",
       ],
       "*.{md,json}": [

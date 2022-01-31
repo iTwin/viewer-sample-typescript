@@ -7,7 +7,10 @@
 3. Make a copy of the config.json file in app/public and name it "config-local.json". Add values to the keys in your config.local.json file. At a minimum, all auth client information as well as an iTwinId and iModelId are required to run the application. If you do not already have an iTwin application client id, you can obtain one [here](https://developer.bentley.com/register/).
 
 - Your client should include the following:
-  - API Associations - Visualization (this will add the "email openid profile organization itwinjs" scopes)
+  - API Associations
+    - Visualization - enable the `imodelaccess:read` scope
+    - iModels - enable the `imodels:read` scope
+    - Reality Data - enable the `realitydate:read` scope
   - Application type - SPA
   - Redirect URIs - http://localhost:3000
 

@@ -5,5 +5,5 @@
 
 export default {
   manifest: import("../package.json"),
-  loader: async () => (await import("./index.js")).default(),
+  // loader: async () => (await import("./index.js")).default(), // TODO re-add once the extension API is ready
 };

@@ -30,18 +30,16 @@
   },
   "dependencies": {
     "@bentley/icons-generic-webfont": "^1.0.15",
-    "@bentley/imodelhub-client": "^3.0.0-extension.1",
-    "@bentley/itwin-client": "^3.0.0-extension.1",
-    "@bentley/product-settings-client": "^3.0.0-extension.1",
-    "@itwin/appui-abstract": "^3.0.0-extension.1",
+    "@itwin/imodels-access-frontend": "^1.0.1",
+    "@itwin/imodels-client-management": "^1.0.1",
+    "@itwin/appui-abstract": "^3.0.0",
     "@itwin/browser-authorization": "^0.2.0",
-    "@itwin/core-common": "^3.0.0-extension.1",
-    "@itwin/core-frontend": "^3.0.0-extension.1",
-    "@itwin/core-geometry": "^3.0.0-extension.1",
-    "@itwin/core-orbitgt": "^3.0.0-extension.1",
-    "@itwin/core-quantity": "^3.0.0-extension.1",
-    "@itwin/presentation-common": "^3.0.0-extension.1",
-    "@itwin/webgl-compatibility": "^3.0.0-extension.1",
-    "@itwin/select-tool-extension-sample": "0.0.1"
+    "@itwin/core-common": "^3.0.0",
+    "@itwin/core-frontend": "^3.0.0",
+    "@itwin/core-geometry": "^3.0.0",
+    "@itwin/core-orbitgt": "^3.0.0",
+    "@itwin/core-quantity": "^3.0.0",
+    "@itwin/presentation-common": "^3.0.0",
+    "@itwin/webgl-compatibility": "^3.0.0"
   }
 }

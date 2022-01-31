@@ -2,6 +2,7 @@
 * Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 * See LICENSE.md in the project root for license terms and full copyright notice.
 *--------------------------------------------------------------------------------------------*/
+
 import {
   ActionButton,
   StageUsage,
@@ -14,6 +15,7 @@ import {
   IModelApp,
   PanViewTool,
   RotateViewTool,
+  SelectionTool,
   WindowAreaTool,
 } from "@itwin/core-frontend";
 import "./Tools.css";
@@ -34,11 +36,21 @@ export const addToolbar = (container: HTMLDivElement) => {
     "",
     StageUsage.General,
     ToolbarUsage.ContentManipulation,
-    ToolbarOrientation.Horizontal,
+    ToolbarOrientation.Horizontal
   ) as ActionButton[];
 
   // Add buttons for some built-in tools
-  // https://github.com/iTwin/itwinjs-core/tree/new-extension-api/core/frontend/src/tools
+  // https://github.com/iTwin/itwinjs-core/tree/master/core/frontend/src/tools
+
+  // TODO remove once the extension API is ready
+  toolbarButtons.push({
+    id: SelectionTool.toolId,
+    execute: async () => IModelApp.tools.run(SelectionTool.toolId),
+    label: SelectionTool.flyover,
+    description: SelectionTool.description,
+    icon: SelectionTool.iconSpec,
+    itemPriority: 1,
+  });
 
   // add the rotate point tool
   toolbarButtons.push({
