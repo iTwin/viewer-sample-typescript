@@ -97,8 +97,8 @@ export const addToolbar = (container: HTMLDivElement) => {
     const button = document.createElement("button");
     button.className = "viewer-tool-button";
     button.id = toolbarButton.id;
-    const toolTip = document.createElement("span");
     if (toolbarButton.label) {
+      const toolTip = document.createElement("span");
       toolTip.textContent = toolbarButton.label as string;
       toolTip.className = "viewer-tool-button-tip";
       button.appendChild(toolTip);
