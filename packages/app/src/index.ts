@@ -14,12 +14,12 @@ import {
   IModelReadRpcInterface,
   IModelTileRpcInterface,
 } from "@itwin/core-common";
-import { IModelApp } from "@itwin/core-frontend";
+import { IModelApp, LocalExtensionProvider } from "@itwin/core-frontend";
 import { PresentationRpcInterface } from "@itwin/presentation-common";
 import AuthClient from "./clients/Authorization";
 import ConfigClient, { ViewerConfiguration } from "./clients/Configuration";
 import { addViewport } from "./Viewport";
-// import SelectTool from "@itwin/select-tool-extension-sample";   // TODO re-add once the extension API is ready
+import SelectTool from "@itwin/select-tool-extension-sample";
 import "@bentley/icons-generic-webfont/dist/bentley-icons-generic-webfont.css";
 
 /**
@@ -47,12 +47,9 @@ const signIn = async (authConfig: BrowserAuthorizationClientConfiguration) => {
  * Add iTwin.js extensions
  */
 const addExtensions = async () => {
-  // TODO re-add once the extension API is ready
-  // await IModelApp.extensionAdmin.addBuildExtension(
-  //   SelectTool.manifest,
-  //   SelectTool.loader
-  // );
-  // await IModelApp.extensionAdmin.onStartup();
+  await IModelApp.extensionAdmin.addExtension(
+    new LocalExtensionProvider(SelectTool)
+  );
 };
 
 /**

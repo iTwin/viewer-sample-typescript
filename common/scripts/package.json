@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "https://github.com/itwin/viewer-samples/tree/main/common/scripts",
   "dependencies": {
-    "@itwin/eslint-plugin": "^3.0.0",
+    "@itwin/eslint-plugin": "^3.2.0",
     "@typescript-eslint/eslint-plugin": "~4.31.0",
     "@typescript-eslint/parser": "~4.31.0",
     "eslint-import-resolver-node": "0.3.4",
